@@ -1,0 +1,273 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+=============================
+End of Eric
+=============================
+*/
+
+/*
+=============================
+General Stylings & Typography
+=============================
+*/
+
+b,
+strong {
+	font-weight: 700;
+}
+
+
+i,
+em {
+	font-style: italic;
+	letter-spacing: 1.5px;
+}
+
+ul {
+	list-style: circle inside;
+}
+
+ol {
+	list-style: decimal-leading-zero inside;
+	indent: 8px;
+}
+
+ul p {
+	font-weight: 700;
+	text-decoration: underline;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+ul li {
+	padding-left: 20px;
+}
+
+h1 {
+	font-size: 28px;
+	line-height: 150%;
+	padding-bottom: 25px;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 250%;
+	padding-bottom: 25px;
+}
+
+.gen_notes h2 {
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+h1, h2, h3, h4, h5, p {
+}
+body {
+	background: #bdecf1;
+	font: 400 14px/22px "Cambay", Helvetica, Arial, sans-serif;
+	color: #0B0842;
+}
+
+.column_count {
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+}
+/*
+==============================
+Grid
+==============================
+*/
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.container,
+.grid {
+	width: 950px;
+	margin: 0 auto;
+	}
+
+.container {
+	padding: 30px 66px;
+}
+
+.grid,
+.col-1-3,
+.col-2-3 {
+	padding-left: 33px;
+	padding-right: 33px;
+}
+
+.col-1-3,
+.col-2-3 {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.col-1-3 {
+	width: 33.33%;
+}
+
+.col-2-3 {
+	width: 66.66%;
+}
+
+/*
+=============================
+Links
+=============================
+*/
+
+a {
+	text-decoration: none;
+	color: #000;
+	text-shadow: 1px 1px #ccc;
+}
+
+.highlights a {
+	color: #f2d200;
+	text-shadow: none;
+}
+
+.highlights a:hover {
+	background: -webkit-radial-gradient(#f2d200,#8aaabb);
+	background: -moz-radial-gradient(#f2d200,#8aaabb);
+	background: radial-gradient(#f2d200,#8aaabb);
+	color: #0b0842;
+}
+.nav-bar a {
+	text-decoration: none;
+	color: #44419c; 
+	font-size: 18px;
+}
+
+.nav-bar a:hover {
+	color: #422331;
+	font-size: 18px;
+	background-color: #fff;
+	background: radial-gradient(#fff,#bdecf1);
+}
+
+.nav-bar .faktab:hover {
+	background: none;
+}
+/*
+=============================
+Clearfix
+=============================
+*/
+
+.cfix,
+.cfix:before,
+.cfix:after {
+	display: table;
+	margin: 0 auto;
+}
+
+.cfix:after {
+	clear: both;
+}	
+
+.cfix {
+	clear: both;
+	*zoom: 1;
+}
+/*
+=============================
+Primary header
+=============================
+*/
+
+.logo {
+	font-weight: 700;
+	float: left;
+	font-size: 50px;
+}
+
+.nav-bar,
+.tagline {
+	display: inline-block;
+	text-align: right;
+	float: right;
+}
+
+
+.highlights {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: 700;
+/*	background: linear-gradient(to left,#bdecf1,#8aaabb);
+	background: -webkit-linear-gradient(to left,#bdecf1,#8aaabb);
+	background: -moz-linear-gradient(to left,#bdecf1,#8aaabb);
+*/	border-left: 3px solid #f2d200;
+	border-top: 3px solid #f2d200;
+	color: #0b0842;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 11px;
+	font-size: 18px;
+	line-height: 29px;
+}
+
+.mid_row {
+	background-color: #8aaabb;
+	border-left: 15px solid #f2d200;
+	border-radius: 11px;
+	padding-bottom: 55px;
+}
