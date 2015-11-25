@@ -124,6 +124,14 @@ body {
 	-webkit-column-count: 3;
 	column-count: 3;
 }
+
+canvas {
+	background-color: #ffffff;
+	display: inline-block;
+	horizonal-align: center;
+	
+}
+
 /*
 ==============================
 Grid
@@ -246,6 +254,7 @@ Primary header
 	display: inline-block;
 	text-align: right;
 	float: right;
+	padding-top: 25px;
 }
 
 
