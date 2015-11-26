@@ -1,83 +1,93 @@
-function randomFill(){
+function randomColor(){
 	var red = Math.floor(Math.random()*255);
 	var green = Math.floor(Math.random()*255);
 	var blue = Math.floor(Math.random()*255);
 	return "rgb(" + red + "," + green + "," + blue + ")";
-}	
+}
+
+function random(x){
+	var rando = Math.random()*x;
+	return rando;
+}
+	
 function corner(){
-    var corners = []
-    for (var i = 0; i<3; i++){
-        corners[i]=Math.floor((Math.random()*4)+1)
-        while (corners[i]===corners[i-1]||corners[i]===corners[i-2]){
-            corners[i]=Math.floor((Math.random()*4)+1)
-        }
-    }
-        return corners;
-}
-function xPoint(cornerArray,x){
-    var xCoord = []
-    for(var j in cornerArray){
-        if (cornerArray[j]===1){
-            xCoord[j] = Math.floor(Math.random()*(x/4))+0.5;
-        } else if (cornerArray[j]===2){
-            xCoord[j] = Math.floor(Math.random()*(x*3/4))+0.5;
-        } else if (cornerArray[j]===3){
-            xCoord[j] = Math.floor(Math.random()*(x/4))+0.5;
-        } else {
-            xCoord[j] = Math.floor(Math.random()*(x*3/4))+0.5;
-        }
-    }
-    return xCoord;
+	var corn = [];
+	for (var i = 0; i < 3; i++){
+       		corn[i]=Math.floor(random(4)+1);
+	        while (corn[i]===corn[i-1]||corn[i]===corn[i-2]){
+			corne = Math.floor(random(4))+1;
+			corn[i] = corne;
+		}
+	}
+        return corn;
 }
 
-function yPoint(cornerArray,y){
-    var yCoord = [];
-    for(var j in cornerArray){
-        if (cornerArray[j]===1){
-            yCoord[j] = Math.floor(Math.random()*(y/4))+0.5;
-        } else if (cornerArray[j]===2){
-            yCoord[j] = Math.floor(Math.random()*(y/4))+0.5;
-        } else if (cornerArray[j]===3){
-            yCoord[j] = Math.floor(Math.random()*(y*3/4))+0.5;
-        } else {
-            yCoord[j] = Math.floor(Math.random()*(y*3/4))+0.5;
-        }
-    }
-    return yCoord;
-}
-
-function triCoords(ctx){
-	var rounds = 0;	
-	for (var i = -10; i < 5000; i+=36){
-		rounds += 1;	
-		ctx.fillStyle = randomFill();
-		var cornerArray = corner();
-		var x = 36;
-		var y = 36;
-		var xCoord = xPoint(cornerArray,x);
-		var yCoord = yPoint(cornerArray,y);
-		ctx.moveTo(xCoord[0]+rounds*36,yCoord[0]);
-		ctx.lineTo(xCoord[1]+rounds*36,yCoord[1]);
-		ctx.lineTo(xCoord[2]+rounds*36,yCoord[2]);
-		ctx.closePath();
-		ctx.fill();
-	}		
+function coordinates(){
+	var xc = [];
+	var yc = [];
+	var corn = corner();
+	for (var i in corn){
+		if (corn[i]%2===1){
+			xc[i] = Math.ceil(random(6));
+		} else {
+			xc[i] = Math.floor(random(6)+30);
+		}
+	}
+	for (var j in corn){
+		if (corn[j]<3){
+			yc[j] = Math.ceil(random(6));
+		} else {
+			yc[j] = Math.floor(random(6)+30);
+		}
+	}
+	var xcObj = {
+		xc1 : xc[0],
+		xc2 : xc[1],
+		xc3 : xc[2]
+	}
+	var ycObj = {
+		yc1 : yc[0],
+		yc2 : yc[1],
+		yc3 : yc[2]
+	};
+	var coordObj = [xcObj,ycObj];
+	return coordObj;
 }
 
 function triDesign(){
-	var tri = document.getElementById("tri");
-	if (tri.getContext){
-		var ctx = tri.getContext("2d");
-		/*draw up-down lines down the strip*/
-		ctx.beginPath();
-		/*for (var i = -20; i<5000; i+=36){
-			ctx.moveTo(i,0);
-			ctx.lineTo(i,36);
-			ctx.stroke();*/
-				
-		triCoords(ctx);
+	var tritop = document.getElementById("tri-top");
+	var tribottom = document.getElementById("tri-bottom");
+	topAndBottom(tritop);
+	topAndBottom(tribottom);
+}
+
+function topAndBottom(t){
+	if (t.getContext){
+	var ctx = t.getContext("2d");
+	var rounds = 0;	
 	
-				
-	}
+	for (var r = -100; r < 5000; r+=36){
+		rounds += 1;	
+		ctx.fillStyle = randomColor();
+		ctx.strokeStyle = randomColor();
+		/*ctx.beginPath();
+		ctx.moveTo(r,0);
+		ctx.lineTo(r,36);
+		ctx.stroke();*/
+	
+		var coordObj = coordinates();
+		var xcObj = coordObj[0];
+		var ycObj = coordObj[1];
+
+		ctx.beginPath();
+		ctx.moveTo(xcObj.xc1 + (rounds-1)*36,ycObj.yc1);
+		ctx.lineTo(xcObj.xc2 + (rounds-1)*36,ycObj.yc2);
+		ctx.lineTo(xcObj.xc3 + (rounds-1)*36,ycObj.yc3);
+		ctx.closePath();
+		ctx.fill();
+	
+
+		}	
+}
 }
 

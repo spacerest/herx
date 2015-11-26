@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+	<script src="scripts/app.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Cambay:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="assets/stylesheets/maine.css" type="text/css">
@@ -10,7 +11,7 @@
 
 </head>
 
-<body>
+<body onload="triDesign();">
 
 <header class="pri-header container cfix">
 
@@ -21,6 +22,8 @@ Logo
 	<h1 class="logo">sun nov 15 2015</h1>
 	
 	<h3 class="tagline">this is a page where i&#8217;ll put things i&#8217;ve learned so far</h3>
+
+<canvas id="tri-top" height="36" width="1000"></canvas>
 	<nav class="nav-bar">
 		<a href="basics.html">basics</a>
 		<a class="faktab">|</a>
@@ -76,11 +79,6 @@ Low Frame
 <!---------------------
 End
 ----------------------->
-<cite>all taken from <a target="none" href="http://learn.shayhowe.com/html-css/getting-to-know-html/">shay howe</a>
-<br>
-<small>&copy;not really copy-written 2015</small>
-<br>
-<br>
 <nav class="nav-bar">
 		<a href="basics.html">basics</a>
 		<a class="faktab">|</a>
@@ -96,6 +94,13 @@ End
 		<a class="faktab">|</a>
 		<a href="backgrounds.html">backgrounds/gradients</a>
 </nav>
+
+	<canvas id="tri-bottom" height="36" width="1000"></canvas>
+
+	<cite>all taken from <a target="none" href="http://learn.shayhowe.com/html-css/getting-to-know-html/">shay howe</a>
+	<br>
+	<small>&copy;not really copy-written 2015</small>
+
 </footer>
 
 </body>
